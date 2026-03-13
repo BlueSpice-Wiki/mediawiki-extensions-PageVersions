@@ -1,0 +1,18 @@
+{
+	"root": true,
+	"extends": [
+		"wikimedia/client-es6",
+		"wikimedia/jquery",
+		"wikimedia/mediawiki"
+	],
+	"parserOptions": {
+		"ecmaVersion": "latest"
+	},
+	"globals": {
+		"ext": "readonly",
+		"OOJSPlus": "readonly",
+		"ve": "readonly",
+		"workflows": "readonly"
+	},
+	"rules": {}
+}

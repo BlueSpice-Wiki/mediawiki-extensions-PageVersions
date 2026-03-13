@@ -1,0 +1,64 @@
+[
+	{
+		"name": "page_version",
+		"columns": [
+			{
+				"name": "pv_rev",
+				"type": "integer",
+				"options": {
+					"unsigned": true,
+					"notnull": true
+				}
+			},
+			{
+				"name": "pv_page",
+				"type": "string",
+				"options": {
+					"length": 255,
+					"notnull": true
+				}
+			},
+			{
+				"name": "pv_version",
+				"type": "string",
+				"options": {
+					"length": 255,
+					"notnull": true
+				}
+			},
+			{
+				"name": "pv_timestamp",
+				"type": "mwtimestamp",
+				"options": {
+					"notnull": true
+				}
+			},
+			{
+				"name": "pv_actor",
+				"type": "integer",
+				"options": {
+					"unsigned": true,
+					"notnull": false
+				}
+			},
+			{
+				"name": "pv_comment",
+				"type": "string",
+				"options": {
+					"length": 255,
+					"notnull": false
+				}
+			},
+			{
+				"name": "pv_wiki_id",
+				"type": "string",
+				"options": {
+					"length": 255,
+					"notnull": true
+				}
+			}
+		],
+		"indexes": [],
+		"pk": [ "pv_rev", "pv_version", "pv_wiki_id" ]
+	}
+]

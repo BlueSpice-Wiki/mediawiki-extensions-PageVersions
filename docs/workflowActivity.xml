@@ -1,0 +1,10 @@
+<bpmn:task id="NewPageVersion" name="new-page-version">
+    <bpmn:extensionElements>
+        <wf:type>new_page_version</wf:type>
+    </bpmn:extensionElements>
+    <!-- Specify `pagename` property if you want to run on an explicit page,
+   otherwise the "workflow context" page will be used -->
+    <bpmn:property name="version_type">major</bpmn:property>
+    <bpmn:incoming>...</bpmn:incoming>
+    <bpmn:outgoing>...</bpmn:outgoing>
+</bpmn:task>

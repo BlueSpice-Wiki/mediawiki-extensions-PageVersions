@@ -1,0 +1,221 @@
+{
+	"name": "PageVersions",
+	"version": "1.0.0-alpha",
+	"license-name": "GPL-3.0-only",
+	"author": [
+		"[https://www.hallowelt.com Hallo Welt! GmbH]"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:PageVersions",
+	"descriptionmsg": "page-versions-desc",
+	"requires": {
+		"MediaWiki": ">= 1.43.0"
+	},
+	"attributes": {
+		"EnhancedStandardUIs": {
+			"HistoryPagePlugins": {
+				"page-versions": {
+					"class": "MediaWiki\\Extension\\PageVersions\\Integration\\PageVersionHistoryPlugin",
+					"services": [ "PageVersions.Store" ]
+				}
+			}
+		},
+		"BlueSpiceDiscovery": {
+			"MetaItemProviderRegistry": {
+				"page-versions": {
+					"class": "\\MediaWiki\\Extension\\PageVersions\\Integration\\MetaItemProvider\\PageVersionMetadata",
+					"services": [ "PageVersions.Store" ]
+				}
+			}
+		},
+		"WikiAutomations": {
+			"Triggers": {
+				"page_version_created": {
+					"type": "page",
+					"message": "pageversions-automation-trigger-label",
+					"spec": {
+						"class": "MediaWiki\\Extension\\PageVersions\\Integration\\WikiAutomations\\PageVersionCreatedTrigger"
+					}
+				}
+			}
+		},
+		"PageCheckout": {
+			"Plugins": {
+				"page-version": {
+					"class": "MediaWiki\\Extension\\PageVersions\\Integration\\PageCheckoutPlugin",
+					"services": [ "PageVersions.Store", "RevisionLookup", "PageVersions.Manager", "PageVersions._Logger", "PageVersions._Bumper" ]
+				}
+			}
+		},
+		"Workflows": {
+			"LogicObjects": {
+				"ActivityRegistry": {
+					"new_page_version": {
+						"class": "\\MediaWiki\\Extension\\PageVersions\\Integration\\Workflows\\NewPageVersionActivity",
+						"services": [
+							"TitleFactory", "RevisionLookup", "PageVersions.Manager"
+						]
+					}
+				}
+			},
+			"EditorPluginModules": [
+				"ext.pageVersions.workflows.editor"
+			]
+		}
+	},
+	"callback": "mwsInitComponents",
+	"MessagesDirs": {
+		"PageVersions": "i18n"
+	},
+	"ExtensionMessagesFiles": {
+		"PageVersionsMagic": "PageVersions.magic.php"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\PageVersions\\": "src/",
+		"MediaWiki\\Extension\\PageVersions\\Tests\\": "tests/phpunit"
+	},
+	"ResourceModules": {
+		"ext.pageVersions.bootstrap": {
+			"scripts": [
+				"bootstrap.js"
+			]
+		},
+		"ext.pageVersions.history": {
+			"scripts": [
+				"enhancedHistory.js"
+			],
+			"messages": [
+				"pageversions-versionhistory-grid-header-version"
+			],
+			"dependencies": [
+				"ext.oOJSPlus.data",
+				"oojs-ui.styles.icons-moderation",
+				"ext.pageVersions.bootstrap"
+			]
+		},
+		"ext.pageVersions.create": {
+			"scripts": [
+				"ui/PageVersionPanel.js",
+				"ui/PageVersionDialog.js"
+			],
+			"dependencies": [
+				"oojs-ui",
+				"ext.pageVersions.bootstrap"
+			],
+			"messages": [
+				"page-versions-next-versions-load-failed",
+				"page-versions-next-versions-current",
+				"pageversions-ui-version-type-label-major",
+				"pageversions-ui-version-type-label-minor",
+				"pageversions-ui-version-type-label-patch",
+				"pageversions-ui-action-create",
+				"pageversions-ui-action-cancel",
+				"page-versions-next-versions-comment-label",
+				"pageversions-ca-create-label",
+				"page-versions-error"
+			]
+		},
+		"ext.pageVersions.workflows.editor": {
+			"scripts": [
+				"ui/workflows/NewPageVersionActivityInspector.js"
+			],
+			"styles": [
+				"ui/workflows/customElements.css"
+			],
+			"messages": [
+				"pageversions-ca-create-label",
+				"pageversions-workflow-inspector-field-version-type-label",
+				"pageversions-workflow-version-type-label-major",
+				"pageversions-workflow-version-type-label-minor",
+				"pageversions-workflow-version-type-label-patch",
+				"pageversions-workflow-inspector-field-pagename"
+
+			],
+			"dependencies": [
+				"ext.workflows.editor.inspector.bootstrap",
+				"ext.workflows.editor.customElements.bootstrap",
+				"ext.pageVersions.bootstrap"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "PageVersions/resources"
+	},
+	"Hooks": {
+		"LoadExtensionSchemaUpdates": "runDatabaseUpdates",
+		"PageReadConfirmationGetRequestInfo": "readConfirmation",
+		"MWStakeCommonWebAPIsQueryStoreResult": "readConfirmation",
+		"MediaWikiPerformAction": "resolveVersionParam",
+		"SkinTemplateNavigation::Universal": "addContentAction",
+		"BlueSpiceDiscoveryTemplateDataProviderAfterInit": "blueSpiceDiscoverySkin",
+		"PageVersionCreated": "triggerAutomations",
+		"ParserFirstCallInit": "addMagicWords",
+		"ParserGetVariableValueSwitch": "addMagicWords",
+		"GetMagicVariableIDs": "addMagicWords"
+	},
+	"HookHandlers": {
+		"runDatabaseUpdates": {
+			"class": "MediaWiki\\Extension\\PageVersions\\Hook\\RunDatabaseUpdates"
+		},
+		"readConfirmation": {
+			"class": "MediaWiki\\Extension\\PageVersions\\Integration\\ReadConfirmation",
+			"services": [ "PageVersions.Store", "LinkRenderer" ]
+		},
+		"resolveVersionParam": {
+			"class": "MediaWiki\\Extension\\PageVersions\\Hook\\ResolveVersionParam",
+			"services": [ "PageVersions.Store" ]
+		},
+		"addContentAction": {
+			"class": "MediaWiki\\Extension\\PageVersions\\Hook\\AddContentAction",
+			"services": [
+				"PageVersions.Store"
+			]
+		},
+		"blueSpiceDiscoverySkin": {
+			"class": "MediaWiki\\Extension\\PageVersions\\Integration\\DiscoverySkin"
+		},
+		"triggerAutomations": {
+			"class": "MediaWiki\\Extension\\PageVersions\\Integration\\WikiAutomations\\TriggerAutomations",
+			"services": [ "WikiAutomations.Runner" ]
+		},
+		"addMagicWords": {
+			"class": "MediaWiki\\Extension\\PageVersions\\Hook\\AddMagicWords",
+			"services": [ "PageVersions.Store", "TitleFactory" ]
+		}
+	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
+	"LogTypes": [ "ext-page-versions" ],
+	"LogActionsHandlers": {
+		"ext-page-versions/*": "LogFormatter"
+	},
+	"config": {
+		"PageVersionsLevels": {
+			"value": [ "major", "minor", "patch" ],
+			"description": "page-versions-config-levels-desc",
+			"merge_strategy": "provide_default"
+		}
+	},
+	"RestRoutes": [
+		{
+			"method": "POST",
+			"path": "/page_versions/create",
+			"class": "MediaWiki\\Extension\\PageVersions\\Rest\\AddVersionHandler",
+			"services": [ "PageVersions.Manager", "RevisionLookup" ]
+		},
+		{
+			"method": "POST",
+			"path": "/page_versions/delete",
+			"class": "MediaWiki\\Extension\\PageVersions\\Rest\\DeleteVersionHandler",
+			"services": [ "PageVersions.Manager", "RevisionLookup" ]
+		},
+		{
+			"path": "/page_versions/next/{pageId}",
+			"class": "MediaWiki\\Extension\\PageVersions\\Rest\\NextVersionHandler",
+			"services": [ "PageVersions.Store", "PageVersions._Bumper" ]
+		}
+	],
+	"manifest_version": 2,
+	"load_composer_autoloader": true
+}

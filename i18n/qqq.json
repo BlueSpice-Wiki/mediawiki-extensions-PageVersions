@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"HalloWelt! GbmH"
+		]
+	},
+	"page-versions-desc": "{{desc|name=PageVersions|url=https://www.mediawiki.org/wiki/Extension:PageVersions}}",
+	"log-name-ext-page-versions": "Name of the page versioning log, shown in log listings.",
+	"log-description-ext-page-versions": "Description of the page versioning log, shown at the top of the log page.",
+	"logentry-ext-page-read-confirmations-confirm": "Log entry shown when a new page version is created. Parameters:\n* $1 - the user who performed the action (name)\n* $2 - the user who performed the action (for GENDER)\n* $3 - the page title\n* $4 - the version number\n* $5 - the comment",
+	"logentry-ext-page-read-confirmations-remove-confirmation": "Log entry shown when a page version is removed. Parameters:\n* $1 - the user who performed the action (name)\n* $2 - the user who performed the action (for GENDER)\n* $3 - the page title\n* $4 - the version number that was removed",
+	"pageversions-revision-exception-unavailable": "Error message shown when the requested revision already has a version from a later revision. $1 is the revision ID.",
+	"pageversions-revision-exception-no-version": "Error message shown when no version is assigned to the given revision. $1 is the revision ID.",
+	"pageversions-versionhistory-grid-header-version": "Column header label for the version number in the version history grid.",
+	"pageversions-ca-create-label": "Label for the content action (tab) that opens the dialog to create a new page version.",
+	"page-versions-next-versions-load-failed": "Error message shown when loading version information fails. Displayed in the page version panel.",
+	"page-versions-next-versions-current": "Label showing the previous page version. $1 is the version string (e.g. '1.0.0').",
+	"pageversions-ui-version-type-label-major": "Label for the major version type option in the version creation dialog. $1 is the resulting version number (e.g. '2.0.0').",
+	"pageversions-ui-version-type-label-minor": "Label for the minor version type option in the version creation dialog. $1 is the resulting version number (e.g. '1.1.0').",
+	"pageversions-ui-version-type-label-patch": "Label for the patch version type option in the version creation dialog. $1 is the resulting version number (e.g. '1.0.1').",
+	"pageversions-ui-action-create": "Button label to confirm and create a new page version in the version creation dialog.",
+	"pageversions-ui-action-cancel": "Button label to cancel the version creation dialog without making any changes.",
+	"page-versions-next-versions-comment-label": "Label for the comment input field in the version creation panel.",
+	"page-versions-error": "Generic error message shown in the UI when an unexpected error occurs.",
+	"pageversions-version-badge-label": "Label for the version badge displayed in the page metadata. $1 is the version number (e.g. '1.2.3').",
+	"pageversions-automation-trigger-type-header": "Header label for the trigger configuration section in the wiki automations integration, used to select which version levels trigger an automation.",
+	"pageversions-automation-trigger-label": "Label for the automation trigger that fires when a new page version is created.",
+	"pageversions-checkin-form-header": "Header text of the check-in form asking the user whether to create a new page version upon page check-in.",
+	"pageversions-ui-version-type-label-none": "Option label in the version type selector meaning no new version should be created.",
+	"pageversions-workflow-exception-no-title": "Error message thrown in workflow activity when no valid page title is found.",
+	"pageversions-workflow-exception-no-revision": "Error message thrown in workflow activity when no valid revision is found.",
+	"pageversions-workflow-exception-invalid-version-type": "Error message thrown in workflow activity when an invalid version type is specified.",
+	"pageversions-workflow-inspector-field-version-type-label": "Label for the version type field in the workflow activity inspector.",
+	"pageversions-workflow-version-type-label-major": "Label for the major version type option in the workflow activity inspector.",
+	"pageversions-workflow-version-type-label-minor": "Label for the minor version type option in the workflow activity inspector.",
+	"pageversions-workflow-version-type-label-patch": "Label for the patch version type option in the workflow activity inspector.",
+	"pageversions-workflow-inspector-field-pagename": "Label for the page name field in the workflow activity inspector, specifying which page to create a version for."
+}

@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"HalloWelt! GbmH"
+		]
+	},
+	"page-versions-desc": "Allows page versioning",
+	"log-name-ext-page-versions": "Page versioning log",
+	"log-description-ext-page-versions": "Log of page versions",
+	"logentry-ext-page-read-confirmations-confirm": "$1 {{GENDER:$2|has created}} a new version on $3: $4 (comment:$5)",
+	"logentry-ext-page-read-confirmations-remove-confirmation": "$1 {{GENDER:$2|has removed}} version $4 on $3",
+	"pageversions-revision-exception-unavailable": "Requested revision ($1) already has a version of a later revision has a version",
+	"pageversions-revision-exception-no-version": "No version is assigned to revision $1",
+	"pageversions-versionhistory-grid-header-version": "Version",
+	"pageversions-ca-create-label": "Create page version",
+	"page-versions-next-versions-load-failed": "Failed to load version information. Please try again later.",
+	"page-versions-next-versions-current": "Previous page version: $1",
+	"pageversions-ui-version-type-label-major": "Major version ($1)",
+	"pageversions-ui-version-type-label-minor": "Minor version ($1)",
+	"pageversions-ui-version-type-label-patch": "Patch version ($1)",
+	"pageversions-ui-action-create": "Create",
+	"pageversions-ui-action-cancel": "Cancel",
+	"page-versions-next-versions-comment-label": "Comment",
+	"page-versions-error": "An error occurred. Please try again later.",
+	"pageversions-version-badge-label": "Version: $1",
+	"pageversions-automation-trigger-type-header": "Trigger on version levels",
+	"pageversions-automation-trigger-label": "New page version",
+	"pageversions-checkin-form-header": "Do you want to create a new page version?",
+	"pageversions-ui-version-type-label-none": "Do not create new version",
+	"pageversions-workflow-exception-no-title": "No valid title found",
+	"pageversions-workflow-exception-no-revision": "No valid revision found",
+	"pageversions-workflow-exception-invalid-version-type": "Invalid version specified",
+	"pageversions-workflow-inspector-field-version-type-label": "Version type",
+	"pageversions-workflow-version-type-label-major": "Major version",
+	"pageversions-workflow-version-type-label-minor": "Minor version",
+	"pageversions-workflow-version-type-label-patch": "Patch version",
+	"pageversions-workflow-inspector-field-pagename": "Page to create version for"
+}
