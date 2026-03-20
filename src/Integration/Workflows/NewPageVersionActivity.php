@@ -49,6 +49,10 @@ class NewPageVersionActivity extends GenericActivity {
 				'pageversions-workflow-exception-no-revision', $this->getTask()
 			);
 		}
+		$shouldTrigger = $data['should_trigger'] !== '0';
+		if ( !$shouldTrigger ) {
+			return new ExecutionStatus( static::STATUS_COMPLETE, [ 'skipped' => true ] );
+		}
 		$type = $data['version_type'] ?? null;
 
 		try {
