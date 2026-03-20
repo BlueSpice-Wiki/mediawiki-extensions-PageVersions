@@ -33,7 +33,8 @@
 					"type": "page",
 					"message": "pageversions-automation-trigger-label",
 					"spec": {
-						"class": "MediaWiki\\Extension\\PageVersions\\Integration\\WikiAutomations\\PageVersionCreatedTrigger"
+						"class": "MediaWiki\\Extension\\PageVersions\\Integration\\WikiAutomations\\PageVersionCreatedTrigger",
+						"services": [ "PageVersions._Bumper" ]
 					}
 				}
 			}
