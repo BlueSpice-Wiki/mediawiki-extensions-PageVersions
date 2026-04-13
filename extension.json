@@ -145,7 +145,7 @@
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "runDatabaseUpdates",
 		"PageReadConfirmationGetRequestInfo": "readConfirmation",
-		"MWStakeCommonWebAPIsQueryStoreResult": "readConfirmation",
+		"MWStakeCommonWebAPIsQueryStoreResult": "readConfirmationQuery",
 		"MediaWikiPerformAction": "resolveVersionParam",
 		"SkinTemplateNavigation::Universal": "addContentAction",
 		"BlueSpiceDiscoveryTemplateDataProviderAfterInit": "blueSpiceDiscoverySkin",
@@ -160,6 +160,10 @@
 		},
 		"readConfirmation": {
 			"class": "MediaWiki\\Extension\\PageVersions\\Integration\\ReadConfirmation",
+			"services": [ "PageVersions.Store", "LinkRenderer" ]
+		},
+		"readConfirmationQuery": {
+			"class": "MediaWiki\\Extension\\PageVersions\\Integration\\ReadConfirmationPageQueryStore",
 			"services": [ "PageVersions.Store", "LinkRenderer" ]
 		},
 		"resolveVersionParam": {
