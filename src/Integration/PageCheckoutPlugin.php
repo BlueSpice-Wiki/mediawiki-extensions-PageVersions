@@ -47,21 +47,19 @@ readonly class PageCheckoutPlugin implements IPageCheckoutPlugin {
 
 		$items = [
 			[
-				'type' => 'section_label',
-				'title' => Message::newFromKey( 'pageversions-checkin-form-header' )->text()
-			],
+				'type' => 'label',
+				'widget_label' => Message::newFromKey( 'pageversions-checkin-form-header' )->text(),
+			]
 		];
+
 		if ( $currentLatest ) {
 			$msg = Message::newFromKey( 'page-versions-next-versions-current', $currentLatest )->text();
 			$items[] = [
 				'type' => 'label',
-				'widget_label' => $msg
+				'widget_label' => $msg,
+				'style' => 'display: block; font-size: 0.9em'
 			];
 		}
-		$items[] = [
-			'type' => 'hr',
-			'noLayout' => true
-		];
 		$options = [
 			[
 				'data' => -1,
@@ -86,7 +84,8 @@ readonly class PageCheckoutPlugin implements IPageCheckoutPlugin {
 			'type' => 'radio_multiselect',
 			'name' => 'version_type',
 			'noLayout' => true,
-			'options' => $options
+			'options' => $options,
+			'style' => 'margin-top: 10px;'
 		];
 
 		$form = new StandaloneFormSpecification();
