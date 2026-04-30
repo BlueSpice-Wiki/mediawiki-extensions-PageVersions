@@ -16,7 +16,7 @@ use MWStake\MediaWiki\Component\FormEngine\IFormSpecification;
 use MWStake\MediaWiki\Component\FormEngine\StandaloneFormSpecification;
 use Throwable;
 
-readonly class PageCheckoutPlugin implements IPageCheckoutPlugin {
+class PageCheckoutPlugin implements IPageCheckoutPlugin {
 
 	/**
 	 * @param PageVersionStore $store

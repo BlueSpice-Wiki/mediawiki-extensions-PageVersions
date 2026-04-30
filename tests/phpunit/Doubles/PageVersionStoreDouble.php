@@ -10,7 +10,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\User\UserFactory;
 use Wikimedia\Rdbms\ILoadBalancer;
 
-readonly class PageVersionStoreDouble extends PageVersionStore {
+class PageVersionStoreDouble extends PageVersionStore {
 
 	public function __construct(
 		ILoadBalancer $lb,

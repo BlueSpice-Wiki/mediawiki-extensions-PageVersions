@@ -9,7 +9,7 @@ use MediaWiki\WikiMap\WikiMap;
 use stdClass;
 use Wikimedia\Rdbms\ILoadBalancer;
 
-readonly class PageVersionStore {
+class PageVersionStore {
 
 	/**
 	 * @param ILoadBalancer $lb

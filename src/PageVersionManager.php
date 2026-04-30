@@ -13,7 +13,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\WikiMap\WikiMap;
 use PermissionsError;
 
-readonly class PageVersionManager {
+class PageVersionManager {
 
 	/**
 	 * @param PageVersionStore $store

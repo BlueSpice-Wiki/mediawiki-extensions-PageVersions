@@ -6,7 +6,7 @@ use DateTime;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Revision\RevisionRecord;
 
-readonly class PageVersion implements \JsonSerializable {
+class PageVersion implements \JsonSerializable {
 
 	public function __construct(
 		private RevisionRecord $revision,

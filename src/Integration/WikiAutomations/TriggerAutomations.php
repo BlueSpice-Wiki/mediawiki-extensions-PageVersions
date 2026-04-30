@@ -6,7 +6,7 @@ use MediaWiki\Extension\PageVersions\Hook\PageVersionCreatedHook;
 use MediaWiki\Extension\PageVersions\PageVersion;
 use MediaWiki\Extension\WikiAutomations\AutomationRunner;
 
-readonly class TriggerAutomations implements PageVersionCreatedHook {
+class TriggerAutomations implements PageVersionCreatedHook {
 
 	/**
 	 * @param AutomationRunner $automationRunner

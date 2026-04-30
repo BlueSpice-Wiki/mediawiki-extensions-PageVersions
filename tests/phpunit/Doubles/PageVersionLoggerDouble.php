@@ -8,7 +8,7 @@ use MediaWiki\Extension\PageVersions\Util\PageVersionLogger;
 use MediaWiki\User\UserIdentity;
 use Psr\Log\NullLogger;
 
-readonly class PageVersionLoggerDouble extends PageVersionLogger {
+class PageVersionLoggerDouble extends PageVersionLogger {
 
 	public function __construct(
 		private ArrayObject $state
