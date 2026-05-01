@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\PageVersions\Hook;
 use MediaWiki\Extension\PageVersions\PageVersionStore;
 use MediaWiki\Hook\MediaWikiPerformActionHook;
 
-readonly class ResolveVersionParam implements MediaWikiPerformActionHook {
+class ResolveVersionParam implements MediaWikiPerformActionHook {
 
 	/**
 	 * @param PageVersionStore $store

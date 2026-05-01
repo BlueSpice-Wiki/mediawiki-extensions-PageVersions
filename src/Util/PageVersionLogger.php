@@ -9,7 +9,7 @@ use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use Psr\Log\LoggerInterface;
 
-readonly class PageVersionLogger {
+class PageVersionLogger {
 
 	/**
 	 * @param LoggerInterface $logger
