@@ -26,8 +26,7 @@ class ReadConfirmationPageQueryStore implements MWStakeCommonWebAPIsQueryStoreRe
 		if ( $store->getPath() !== '/page_read_confirmations/{page}' ) {
 			return;
 		}
-		$records = [];
-		foreach ( $result->getRecords() as $record ) {
+		foreach ( $result->getRecords() as &$record ) {
 			$version = $record->get( 'prc_rev' ) ?
 				$this->pageVersionStore->getVersionForRevisionId( $record->get( 'prc_rev' ) ) : null;
 			if ( !$version ) {
@@ -40,9 +39,6 @@ class ReadConfirmationPageQueryStore implements MWStakeCommonWebAPIsQueryStoreRe
 				);
 				$record->set( 'revision_link', $link );
 			}
-
-			$records[] = $record;
 		}
-		$result = new ResultSet( $records, $result->getTotal() );
 	}
 }

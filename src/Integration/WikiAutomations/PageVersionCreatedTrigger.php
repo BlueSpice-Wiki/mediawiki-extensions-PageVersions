@@ -40,7 +40,8 @@ class PageVersionCreatedTrigger extends PageEventTrigger {
 			$items[] = [
 				'type' => 'checkbox',
 				'name' => $availableBump,
-				'label' => Message::newFromKey( "pageversions-workflow-version-type-label-$availableBump" )->text()
+				'label' => Message::newFromKey( "pageversions-workflow-version-type-label-$availableBump" )->text(),
+				'labelAlign' => 'inline'
 			];
 		}
 		$spec->setItems( $items );
