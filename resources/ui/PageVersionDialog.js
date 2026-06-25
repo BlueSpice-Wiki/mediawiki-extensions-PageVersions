@@ -47,6 +47,9 @@ ext.pageVersions.ui.PageVersionDialog.prototype.getActionProcess = function ( ac
 					} );
 					return dfd.promise();
 				}
+				if ( action === 'cancel' ) {
+					this.close( { action: 'cancel' } );
+				}
 			}, this
 		);
 };

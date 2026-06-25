@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\PageVersions\Integration;
 use MediaWiki\Extension\PageVersions\PageVersionStore;
 use MediaWiki\Linker\LinkRenderer;
 use MWStake\MediaWiki\Component\CommonWebAPIs\Hook\MWStakeCommonWebAPIsQueryStoreResultHook;
-use MWStake\MediaWiki\Component\DataStore\ResultSet;
 
 class ReadConfirmationPageQueryStore implements MWStakeCommonWebAPIsQueryStoreResultHook {
 

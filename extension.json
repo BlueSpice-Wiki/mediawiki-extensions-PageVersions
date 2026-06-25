@@ -85,7 +85,8 @@
 				"enhancedHistory.js"
 			],
 			"messages": [
-				"pageversions-versionhistory-grid-header-version"
+				"pageversions-versionhistory-grid-header-version",
+				"pageversions-versionhistory-grid-header-version-comment"
 			],
 			"dependencies": [
 				"ext.oOJSPlus.data",

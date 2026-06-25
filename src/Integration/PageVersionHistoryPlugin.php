@@ -29,5 +29,6 @@ class PageVersionHistoryPlugin implements IHistoryPlugin {
 	public function ammendRow( $historyAction, &$entry, &$attribs, &$classes ) {
 		$version = $this->store->getVersionForRevisionId( $entry['id'] );
 		$entry['pv_version'] = $version ? $version->getVersion() : '';
+		$entry['pv_comment'] = $version ? $version->getComment() : '';
 	}
 }

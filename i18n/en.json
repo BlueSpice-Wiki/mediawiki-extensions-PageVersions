@@ -34,5 +34,6 @@
 	"pageversions-workflow-version-type-label-major": "Major version",
 	"pageversions-workflow-version-type-label-minor": "Minor version",
 	"pageversions-workflow-version-type-label-patch": "Patch version",
-	"pageversions-workflow-inspector-field-pagename": "Page to create version for"
+	"pageversions-workflow-inspector-field-pagename": "Page to create version for",
+	"pageversions-versionhistory-grid-header-version-comment": "Version comment"
 }

@@ -34,5 +34,6 @@
 	"pageversions-workflow-version-type-label-major": "Label for the major version type option in the workflow activity inspector.",
 	"pageversions-workflow-version-type-label-minor": "Label for the minor version type option in the workflow activity inspector.",
 	"pageversions-workflow-version-type-label-patch": "Label for the patch version type option in the workflow activity inspector.",
-	"pageversions-workflow-inspector-field-pagename": "Label for the page name field in the workflow activity inspector, specifying which page to create a version for."
+	"pageversions-workflow-inspector-field-pagename": "Label for the page name field in the workflow activity inspector, specifying which page to create a version for.",
+	"pageversions-versionhistory-grid-header-version-comment": "Column header label for the version comment in the version history grid."
 }
