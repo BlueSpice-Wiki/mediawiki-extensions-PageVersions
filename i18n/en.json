@@ -15,6 +15,7 @@
 	"pageversions-ca-create-label": "Create page version",
 	"page-versions-next-versions-load-failed": "Failed to load version information. Please try again later.",
 	"page-versions-next-versions-current": "Previous page version: $1",
+	"page-versions-next-versions-type-label": "Next version",
 	"pageversions-ui-version-type-label-major": "Major version ($1)",
 	"pageversions-ui-version-type-label-minor": "Minor version ($1)",
 	"pageversions-ui-version-type-label-patch": "Patch version ($1)",

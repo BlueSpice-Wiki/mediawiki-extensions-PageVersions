@@ -15,6 +15,7 @@
 	"pageversions-ca-create-label": "Label for the content action (tab) that opens the dialog to create a new page version.",
 	"page-versions-next-versions-load-failed": "Error message shown when loading version information fails. Displayed in the page version panel.",
 	"page-versions-next-versions-current": "Label showing the previous page version. $1 is the version string (e.g. '1.0.0').",
+	"page-versions-next-versions-type-label": "Label for the version type radio selectoin (patch/minor/major) in the version creation panel and check-in form. Used as an accessible group label.",
 	"pageversions-ui-version-type-label-major": "Label for the major version type option in the version creation dialog. $1 is the resulting version number (e.g. '2.0.0').",
 	"pageversions-ui-version-type-label-minor": "Label for the minor version type option in the version creation dialog. $1 is the resulting version number (e.g. '1.1.0').",
 	"pageversions-ui-version-type-label-patch": "Label for the patch version type option in the version creation dialog. $1 is the resulting version number (e.g. '1.0.1').",
