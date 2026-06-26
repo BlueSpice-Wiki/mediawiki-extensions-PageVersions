@@ -1,0 +1,16 @@
+.page-versions-version-tool .dropdown-item.active,
+.page-versions-version-tool .dropdown-item:active {
+	color: var( --bs-body-color, #212529 );
+	background-color: var( --bs-secondary-bg, #e9ecef );
+}
+
+.page-versions-version-tool .page-versions-version-label {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.page-versions-version-tool .page-versions-version-label::after {
+	margin-left: 0;
+	vertical-align: middle;
+}

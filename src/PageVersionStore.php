@@ -94,6 +94,29 @@ class PageVersionStore {
 	}
 
 	/**
+	 * @param int $pageId
+	 * @return array
+	 */
+	public function getPageVersions( int $pageId ): array {
+		$dbr = $this->lb->getConnectionRef( DB_REPLICA );
+		$res = $dbr->newSelectQueryBuilder()
+			->select( [ 'pv_rev', 'pv_version', 'pv_wiki_id', 'pv_page', 'pv_timestamp', 'pv_actor', 'pv_comment' ] )
+			->from( 'page_version' )
+			->where( [
+				'pv_wiki_id' => WikiMap::getCurrentWikiId(),
+				'pv_page' => $pageId
+			] )
+			->orderBy( [ 'pv_version' ], 'DESC' )
+			->fetchResultSet();
+
+		$versions = [];
+		foreach ( $res as $row ) {
+			$versions[] = $this->versionFromRow( $row );
+		}
+		return $versions;
+	}
+
+	/**
 	 * @param PageVersion $version
 	 * @return void
 	 */

@@ -78,6 +78,9 @@
 		"ext.pageVersions.bootstrap": {
 			"scripts": [
 				"bootstrap.js"
+			],
+			"styles": [
+				"pageVersions.css"
 			]
 		},
 		"ext.pageVersions.history": {
