@@ -5,10 +5,6 @@
 		]
 	},
 	"page-versions-desc": "{{desc|name=PageVersions|url=https://www.mediawiki.org/wiki/Extension:PageVersions}}",
-	"log-name-ext-page-versions": "Name of the page versioning log, shown in log listings.",
-	"log-description-ext-page-versions": "Description of the page versioning log, shown at the top of the log page.",
-	"logentry-ext-page-read-confirmations-confirm": "Log entry shown when a new page version is created. Parameters:\n* $1 - the user who performed the action (name)\n* $2 - the user who performed the action (for GENDER)\n* $3 - the page title\n* $4 - the version number\n* $5 - the comment",
-	"logentry-ext-page-read-confirmations-remove-confirmation": "Log entry shown when a page version is removed. Parameters:\n* $1 - the user who performed the action (name)\n* $2 - the user who performed the action (for GENDER)\n* $3 - the page title\n* $4 - the version number that was removed",
 	"pageversions-revision-exception-unavailable": "Error message shown when the requested revision already has a version from a later revision. $1 is the revision ID.",
 	"pageversions-revision-exception-no-version": "Error message shown when no version is assigned to the given revision. $1 is the revision ID.",
 	"pageversions-versionhistory-grid-header-version": "Column header label for the version number in the version history grid.",

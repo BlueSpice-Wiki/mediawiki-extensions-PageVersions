@@ -195,10 +195,6 @@
 	"ServiceWiringFiles": [
 		"includes/ServiceWiring.php"
 	],
-	"LogTypes": [ "ext-page-versions" ],
-	"LogActionsHandlers": {
-		"ext-page-versions/*": "LogFormatter"
-	},
 	"config": {
 		"PageVersionsLevels": {
 			"value": [ "major", "minor", "patch" ],
