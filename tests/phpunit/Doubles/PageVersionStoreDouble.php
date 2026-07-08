@@ -3,8 +3,10 @@
 namespace MediaWiki\Extension\PageVersions\Tests\Doubles;
 
 use ArrayObject;
+use MediaWiki\Config\Config;
 use MediaWiki\Extension\PageVersions\PageVersion;
 use MediaWiki\Extension\PageVersions\PageVersionStore;
+use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\User\UserFactory;
@@ -16,9 +18,10 @@ class PageVersionStoreDouble extends PageVersionStore {
 		ILoadBalancer $lb,
 		RevisionLookup $revisionLookup,
 		UserFactory $userFactory,
+		Config $config,
 		private ArrayObject $state
 	) {
-		parent::__construct( $lb, $revisionLookup, $userFactory );
+		parent::__construct( $lb, $revisionLookup, $userFactory, $config );
 	}
 
 	public function getCurrentPageVersion( int $pageId ): ?string {
@@ -45,5 +48,9 @@ class PageVersionStoreDouble extends PageVersionStore {
 		$this->state['revisionAvailableCalls'][] = [ $requestedRev, $pageId ];
 
 		return $this->state['revisionAvailable'];
+	}
+
+	public function isEnabled( PageIdentity $page ): bool {
+		return $this->state['enabled'];
 	}
 }

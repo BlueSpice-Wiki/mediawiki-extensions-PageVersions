@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Extension\PageVersions;
 
+use MediaWiki\Config\Config;
+use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\User\UserFactory;
@@ -15,11 +17,13 @@ class PageVersionStore {
 	 * @param ILoadBalancer $lb
 	 * @param RevisionLookup $revisionLookup
 	 * @param UserFactory $userFactory
+	 * @param Config $config
 	 */
 	public function __construct(
 		private ILoadBalancer $lb,
 		private RevisionLookup $revisionLookup,
-		private UserFactory $userFactory
+		private UserFactory $userFactory,
+		private readonly Config $config
 	) {
 	}
 
@@ -188,6 +192,15 @@ class PageVersionStore {
 	}
 
 	/**
+	 * @param PageIdentity $page
+	 * @return bool
+	 */
+	public function isEnabled( PageIdentity $page ) {
+		$enabledNamespaces = $this->config->get( 'PageVersionsEnabledNamespaces' ) ?? [];
+		return in_array( $page->getNamespace(), $enabledNamespaces );
+	}
+
+	/**
 	 * @param int $pageId
 	 * @return array [ rev_id => version ]
 	 */
@@ -232,13 +245,3 @@ class PageVersionStore {
 	}
 
 }
-
-/**
- * pv_rev INT UNSIGNED NOT NULL,
- * pv_version VARCHAR(255) NOT NULL,
- * pv_wiki_id VARCHAR(255) NOT NULL,
- * pv_page VARCHAR(255) NOT NULL,
- * pv_timestamp BINARY(14) NOT NULL,
- * pv_actor INT UNSIGNED DEFAULT NULL,
- * pv_comment VARCHAR(255) DEFAULT NULL,
- */

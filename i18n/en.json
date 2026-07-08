@@ -31,5 +31,7 @@
 	"pageversions-workflow-version-type-label-minor": "Minor version",
 	"pageversions-workflow-version-type-label-patch": "Patch version",
 	"pageversions-workflow-inspector-field-pagename": "Page to create version for",
-	"pageversions-versionhistory-grid-header-version-comment": "Version comment"
+	"pageversions-versionhistory-grid-header-version-comment": "Version comment",
+	"page-versions-ns-setting-label": "Page versions",
+	"page-versions-ns-setting-desc": "Enable creating page versions"
 }

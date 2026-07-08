@@ -19,6 +19,9 @@ class ResolveVersionParam implements MediaWikiPerformActionHook {
 	 * @inheritDoc
 	 */
 	public function onMediaWikiPerformAction( $output, $article, $title, $user, $request, $mediaWiki ) {
+		if ( !$this->store->isEnabled( $title ) ) {
+			return;
+		}
 		$version = $request->getText( 'version', null );
 		if ( !$version ) {
 			return;

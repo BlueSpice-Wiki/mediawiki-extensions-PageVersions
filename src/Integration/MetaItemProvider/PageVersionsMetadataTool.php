@@ -35,6 +35,9 @@ class PageVersionsMetadataTool extends Literal {
 		if ( !$title || !$title->exists() || !$title->canExist() ) {
 			return false;
 		}
+		if ( !$this->store->isEnabled( $title ) ) {
+			return false;
+		}
 		$this->title = $title;
 		$revId = $context->getOutput()->getRevisionId();
 		if ( !$revId ) {

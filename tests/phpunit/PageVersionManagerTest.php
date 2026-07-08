@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\PageVersions\Tests;
 
 use DateTime;
+use MediaWiki\Config\Config;
 use MediaWiki\Extension\PageVersions\Exception\NoVersionOnRevisionException;
 use MediaWiki\Extension\PageVersions\Exception\RevisionUnavailableException;
 use MediaWiki\Extension\PageVersions\PageVersion;
@@ -319,12 +320,14 @@ class PageVersionManagerTest extends TestCase {
 			$this->createMock( ILoadBalancer::class ),
 			$this->createMock( RevisionLookup::class ),
 			$this->createMock( UserFactory::class ),
+			$this->createMock( Config::class ),
 			$state ?? $this->newStoreState()
 		);
 	}
 
 	private function newStoreState( array $overrides = [] ): \ArrayObject {
 		return new \ArrayObject( array_merge( [
+			'enabled' => true,
 			'revisionAvailable' => true,
 			'currentPageVersion' => null,
 			'versionForRevision' => null,

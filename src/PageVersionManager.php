@@ -43,6 +43,9 @@ class PageVersionManager {
 	public function createNewVersion(
 		RevisionRecord $revision, Authority $actor, string $versionType, string $comment = ''
 	): string {
+		if ( !$this->store->isEnabled( $revision->getPage() ) ) {
+			throw new \RuntimeException( 'Page versions are not enabled for this page.' );
+		}
 		$bumpIndex = $this->versionBumper->getBumpIndex( $versionType );
 		$this->assertAvailable( $revision );
 		$this->assertActorCan( 'create', $revision, $actor );
@@ -83,6 +86,9 @@ class PageVersionManager {
 	 * @throws PermissionsError
 	 */
 	public function deleteVersion( RevisionRecord $revisionRecord, Authority $actor ): void {
+		if ( !$this->store->isEnabled( $revisionRecord->getPage() ) ) {
+			return;
+		}
 		$this->assertActorCan( 'remove', $revisionRecord, $actor );
 		$version = $this->store->getVersionForRevision( $revisionRecord );
 		if ( !$version ) {

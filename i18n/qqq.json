@@ -31,5 +31,7 @@
 	"pageversions-workflow-version-type-label-minor": "Label for the minor version type option in the workflow activity inspector.",
 	"pageversions-workflow-version-type-label-patch": "Label for the patch version type option in the workflow activity inspector.",
 	"pageversions-workflow-inspector-field-pagename": "Label for the page name field in the workflow activity inspector, specifying which page to create a version for.",
-	"pageversions-versionhistory-grid-header-version-comment": "Column header label for the version comment in the version history grid."
+	"pageversions-versionhistory-grid-header-version-comment": "Column header label for the version comment in the version history grid.",
+	"page-versions-ns-setting-label": "Namespace setting to enable page versions for a specific namespace.",
+	"page-versions-ns-setting-desc": "Namespace setting description for enabling page versions for a specific namespace."
 }

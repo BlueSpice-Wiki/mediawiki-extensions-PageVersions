@@ -38,6 +38,9 @@ class PageCheckoutPlugin implements IPageCheckoutPlugin {
 	 * @inheritDoc
 	 */
 	public function getCheckInLayout( PageIdentity $forPage, UserIdentity $forUser ): ?IFormSpecification {
+		if ( !$this->store->isEnabled( $forPage ) ) {
+			return null;
+		}
 		$latestRevision = $this->revisionLookup->getRevisionByTitle( $forPage );
 		if ( $latestRevision && $this->store->getVersionForRevision( $latestRevision ) !== null ) {
 			// Revision already has a version

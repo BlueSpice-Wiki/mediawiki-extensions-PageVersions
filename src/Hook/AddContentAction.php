@@ -22,6 +22,9 @@ class AddContentAction implements SkinTemplateNavigation__UniversalHook {
 		if ( !$sktemplate->getTitle()->exists() ) {
 			return;
 		}
+		if ( !$this->store->isEnabled( $sktemplate->getTitle() ) ) {
+			return;
+		}
 		$revId = $sktemplate->getContext()->getOutput()->getRevisionId();
 		if ( !$revId ) {
 			return;

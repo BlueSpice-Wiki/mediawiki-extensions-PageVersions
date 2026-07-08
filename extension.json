@@ -61,6 +61,13 @@
 			"EditorPluginModules": [
 				"ext.pageVersions.workflows.editor"
 			]
+		},
+		"BlueSpiceGalaxyDistributionConnector": {
+			"NamespaceSettings": {
+				"pageversions": {
+					"class": "MediaWiki\\Extension\\PageVersions\\Integration\\Galaxy\\NamespaceSetting"
+				}
+			}
 		}
 	},
 	"callback": "mwsInitComponents",
@@ -196,6 +203,10 @@
 		"includes/ServiceWiring.php"
 	],
 	"config": {
+		"PageVersionsEnabledNamespaces": {
+			"value": [],
+			"description": "Namespaces on which page versions are enabled"
+		},
 		"PageVersionsLevels": {
 			"value": [ "major", "minor", "patch" ],
 			"description": "page-versions-config-levels-desc",
