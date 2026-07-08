@@ -59,15 +59,17 @@ class PageVersionStore {
 
 	/**
 	 * @param string $version
+	 * @param PageIdentity $title
 	 * @return RevisionRecord|null
 	 */
-	public function getRevisionForVersion( string $version ): ?RevisionRecord {
+	public function getRevisionForVersion( string $version, PageIdentity $title ): ?RevisionRecord {
 		$rev = $this->lb->getConnection( DB_REPLICA )
 			->newSelectQueryBuilder()
 			->select( [ 'pv_rev' ] )
 			->from( 'page_version' )
 			->where( [
 				'pv_version' => $version,
+				'pv_page' => $title->getId(),
 				'pv_wiki_id' => WikiMap::getCurrentWikiId(),
 			] )
 			->fetchField();

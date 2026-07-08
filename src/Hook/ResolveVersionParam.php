@@ -29,7 +29,7 @@ class ResolveVersionParam implements MediaWikiPerformActionHook {
 		if ( !$title->exists() || !$title->canExist() ) {
 			return;
 		}
-		$revision = $this->store->getRevisionForVersion( $version );
+		$revision = $this->store->getRevisionForVersion( $version, $title );
 		if ( $revision && $revision->getPageId() === $title->getArticleId() ) {
 			$request->setVal( 'oldid', $revision->getId() );
 		}
