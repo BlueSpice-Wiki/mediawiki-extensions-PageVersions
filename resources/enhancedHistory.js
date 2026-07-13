@@ -6,4 +6,11 @@ mw.hook( 'enhanced.versionhistory' ).add( ( gridCfg ) => {
 		type: 'text',
 		sortable: false
 	};
+
+	gridCfg.columns.pv_comment = { // eslint-disable-line camelcase
+		headerText: mw.message( 'pageversions-versionhistory-grid-header-version-comment' ).text(),
+		type: 'text',
+		sortable: false,
+		hidden: true
+	};
 } );

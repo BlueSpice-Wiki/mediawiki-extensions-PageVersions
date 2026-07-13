@@ -22,10 +22,14 @@ class AddContentAction implements SkinTemplateNavigation__UniversalHook {
 		if ( !$sktemplate->getTitle()->exists() ) {
 			return;
 		}
+		if ( !$this->store->isEnabled( $sktemplate->getTitle() ) ) {
+			return;
+		}
 		$revId = $sktemplate->getContext()->getOutput()->getRevisionId();
 		if ( !$revId ) {
 			return;
 		}
+		$sktemplate->getOutput()->addModules( [ 'ext.pageVersions.bootstrap' ] );
 		if ( !$this->store->revisionAvailable( $revId, $sktemplate->getTitle()->getArticleID() ) ) {
 			return;
 		}
@@ -35,6 +39,5 @@ class AddContentAction implements SkinTemplateNavigation__UniversalHook {
 			"href" => "#",
 			'position' => 30,
 		];
-		$sktemplate->getOutput()->addModules( [ 'ext.pageVersions.bootstrap' ] );
 	}
 }

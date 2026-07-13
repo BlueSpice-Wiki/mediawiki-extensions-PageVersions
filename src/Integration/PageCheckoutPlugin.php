@@ -38,6 +38,9 @@ class PageCheckoutPlugin implements IPageCheckoutPlugin {
 	 * @inheritDoc
 	 */
 	public function getCheckInLayout( PageIdentity $forPage, UserIdentity $forUser ): ?IFormSpecification {
+		if ( !$this->store->isEnabled( $forPage ) ) {
+			return null;
+		}
 		$latestRevision = $this->revisionLookup->getRevisionByTitle( $forPage );
 		if ( $latestRevision && $this->store->getVersionForRevision( $latestRevision ) !== null ) {
 			// Revision already has a version
@@ -88,6 +91,12 @@ class PageCheckoutPlugin implements IPageCheckoutPlugin {
 			'options' => $options,
 			'style' => 'margin-top: 10px;'
 		];
+		$items[] = [
+			'type' => 'textarea',
+			'name' => 'version_comment',
+			'label' => Message::newFromKey( 'pageversions-versionhistory-grid-header-version-comment' )->text(),
+			'labelAlign' => 'top',
+		];
 
 		$form = new StandaloneFormSpecification();
 		$form->setItems( $items );
@@ -111,7 +120,9 @@ class PageCheckoutPlugin implements IPageCheckoutPlugin {
 			return;
 		}
 		try {
-			$this->versionManager->createNewVersion( $revision, $checkoutEntity->getUser(), $type );
+			$this->versionManager->createNewVersion(
+				$revision, $checkoutEntity->getUser(), $type, $data['version_comment']
+			);
 		} catch ( Throwable $e ) {
 			$this->logger->logError( 'Failed to create page version on check-in for page {page}: {error}', [
 				'page' => $checkoutEntity->getTitle()->getPrefixedText(),

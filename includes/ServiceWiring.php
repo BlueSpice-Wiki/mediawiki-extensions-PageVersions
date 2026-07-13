@@ -12,7 +12,8 @@ return [
 		return new PageVersionStore(
 			lb: $services->getDBLoadBalancer(),
 			revisionLookup: $services->getRevisionLookup(),
-			userFactory: $services->getUserFactory()
+			userFactory: $services->getUserFactory(),
+			config: $services->getMainConfig()
 		);
 	},
 	'PageVersions.Manager' => static function ( MediaWikiServices $services ) {

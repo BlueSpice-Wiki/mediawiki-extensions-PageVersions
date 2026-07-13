@@ -19,6 +19,9 @@ class ResolveVersionParam implements MediaWikiPerformActionHook {
 	 * @inheritDoc
 	 */
 	public function onMediaWikiPerformAction( $output, $article, $title, $user, $request, $mediaWiki ) {
+		if ( !$this->store->isEnabled( $title ) ) {
+			return;
+		}
 		$version = $request->getText( 'version', null );
 		if ( !$version ) {
 			return;
@@ -26,7 +29,7 @@ class ResolveVersionParam implements MediaWikiPerformActionHook {
 		if ( !$title->exists() || !$title->canExist() ) {
 			return;
 		}
-		$revision = $this->store->getRevisionForVersion( $version );
+		$revision = $this->store->getRevisionForVersion( $version, $title );
 		if ( $revision && $revision->getPageId() === $title->getArticleId() ) {
 			$request->setVal( 'oldid', $revision->getId() );
 		}

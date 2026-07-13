@@ -61,6 +61,13 @@
 			"EditorPluginModules": [
 				"ext.pageVersions.workflows.editor"
 			]
+		},
+		"BlueSpiceGalaxyDistributionConnector": {
+			"NamespaceSettings": {
+				"pageversions": {
+					"class": "MediaWiki\\Extension\\PageVersions\\Integration\\Galaxy\\NamespaceSetting"
+				}
+			}
 		}
 	},
 	"callback": "mwsInitComponents",
@@ -78,6 +85,9 @@
 		"ext.pageVersions.bootstrap": {
 			"scripts": [
 				"bootstrap.js"
+			],
+			"styles": [
+				"pageVersions.css"
 			]
 		},
 		"ext.pageVersions.history": {
@@ -85,7 +95,8 @@
 				"enhancedHistory.js"
 			],
 			"messages": [
-				"pageversions-versionhistory-grid-header-version"
+				"pageversions-versionhistory-grid-header-version",
+				"pageversions-versionhistory-grid-header-version-comment"
 			],
 			"dependencies": [
 				"ext.oOJSPlus.data",
@@ -192,11 +203,11 @@
 	"ServiceWiringFiles": [
 		"includes/ServiceWiring.php"
 	],
-	"LogTypes": [ "ext-page-versions" ],
-	"LogActionsHandlers": {
-		"ext-page-versions/*": "LogFormatter"
-	},
 	"config": {
+		"PageVersionsEnabledNamespaces": {
+			"value": [],
+			"description": "Namespaces on which page versions are enabled"
+		},
 		"PageVersionsLevels": {
 			"value": [ "major", "minor", "patch" ],
 			"description": "page-versions-config-levels-desc",

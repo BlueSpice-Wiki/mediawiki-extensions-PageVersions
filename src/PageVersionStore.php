@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Extension\PageVersions;
 
+use MediaWiki\Config\Config;
+use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\User\UserFactory;
@@ -15,11 +17,13 @@ class PageVersionStore {
 	 * @param ILoadBalancer $lb
 	 * @param RevisionLookup $revisionLookup
 	 * @param UserFactory $userFactory
+	 * @param Config $config
 	 */
 	public function __construct(
 		private ILoadBalancer $lb,
 		private RevisionLookup $revisionLookup,
-		private UserFactory $userFactory
+		private UserFactory $userFactory,
+		private readonly Config $config
 	) {
 	}
 
@@ -55,15 +59,17 @@ class PageVersionStore {
 
 	/**
 	 * @param string $version
+	 * @param PageIdentity $title
 	 * @return RevisionRecord|null
 	 */
-	public function getRevisionForVersion( string $version ): ?RevisionRecord {
+	public function getRevisionForVersion( string $version, PageIdentity $title ): ?RevisionRecord {
 		$rev = $this->lb->getConnection( DB_REPLICA )
 			->newSelectQueryBuilder()
 			->select( [ 'pv_rev' ] )
 			->from( 'page_version' )
 			->where( [
 				'pv_version' => $version,
+				'pv_page' => $title->getId(),
 				'pv_wiki_id' => WikiMap::getCurrentWikiId(),
 			] )
 			->fetchField();
@@ -91,6 +97,29 @@ class PageVersionStore {
 			->fetchRow();
 
 		return $row ? $row->pv_version : null;
+	}
+
+	/**
+	 * @param int $pageId
+	 * @return array
+	 */
+	public function getPageVersions( int $pageId ): array {
+		$dbr = $this->lb->getConnectionRef( DB_REPLICA );
+		$res = $dbr->newSelectQueryBuilder()
+			->select( [ 'pv_rev', 'pv_version', 'pv_wiki_id', 'pv_page', 'pv_timestamp', 'pv_actor', 'pv_comment' ] )
+			->from( 'page_version' )
+			->where( [
+				'pv_wiki_id' => WikiMap::getCurrentWikiId(),
+				'pv_page' => $pageId
+			] )
+			->orderBy( [ 'pv_version' ], 'DESC' )
+			->fetchResultSet();
+
+		$versions = [];
+		foreach ( $res as $row ) {
+			$versions[] = $this->versionFromRow( $row );
+		}
+		return $versions;
 	}
 
 	/**
@@ -165,6 +194,15 @@ class PageVersionStore {
 	}
 
 	/**
+	 * @param PageIdentity $page
+	 * @return bool
+	 */
+	public function isEnabled( PageIdentity $page ) {
+		$enabledNamespaces = $this->config->get( 'PageVersionsEnabledNamespaces' ) ?? [];
+		return in_array( $page->getNamespace(), $enabledNamespaces );
+	}
+
+	/**
 	 * @param int $pageId
 	 * @return array [ rev_id => version ]
 	 */
@@ -209,13 +247,3 @@ class PageVersionStore {
 	}
 
 }
-
-/**
- * pv_rev INT UNSIGNED NOT NULL,
- * pv_version VARCHAR(255) NOT NULL,
- * pv_wiki_id VARCHAR(255) NOT NULL,
- * pv_page VARCHAR(255) NOT NULL,
- * pv_timestamp BINARY(14) NOT NULL,
- * pv_actor INT UNSIGNED DEFAULT NULL,
- * pv_comment VARCHAR(255) DEFAULT NULL,
- */
