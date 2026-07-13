@@ -184,7 +184,7 @@
 		"addContentAction": {
 			"class": "MediaWiki\\Extension\\PageVersions\\Hook\\AddContentAction",
 			"services": [
-				"PageVersions.Store"
+				"PageVersions.Store", "PageVersions.Manager", "RevisionLookup"
 			]
 		},
 		"blueSpiceDiscoverySkin": {

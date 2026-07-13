@@ -134,4 +134,18 @@ class PageVersionManager {
 			throw new PermissionsError( $action );
 		}
 	}
+
+	/**
+	 * @param RevisionRecord $revision
+	 * @param Authority $actor
+	 * @return bool
+	 */
+	public function checkCanCreate( RevisionRecord $revision, Authority $actor ): bool {
+		try {
+			$this->assertActorCan( 'create', $revision, $actor );
+			return true;
+		} catch ( PermissionsError $e ) {
+			return false;
+		}
+	}
 }
