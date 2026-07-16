@@ -5,7 +5,7 @@
 		]
 	},
 	"page-versions-desc": "Allows page versioning",
-	"pageversions-revision-exception-unavailable": "Requested revision ($1) already has a version of a later revision has a version",
+	"pageversions-revision-exception-unavailable": "The requested revision ($1) already has a version from a later revision",
 	"pageversions-revision-exception-no-version": "No version is assigned to revision $1",
 	"pageversions-versionhistory-grid-header-version": "Version",
 	"pageversions-ca-create-label": "Create page version",
@@ -33,5 +33,5 @@
 	"pageversions-workflow-inspector-field-pagename": "Page to create version for",
 	"pageversions-versionhistory-grid-header-version-comment": "Version comment",
 	"page-versions-ns-setting-label": "Page versions",
-	"page-versions-ns-setting-desc": "Enable creating page versions"
+	"page-versions-ns-setting-desc": "Enable creation of page versions"
 }

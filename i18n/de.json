@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"HalloWelt! GbmH"
+		]
+	},
+	"page-versions-desc": "Ermöglicht die Versionierung von Seiten",
+	"pageversions-revision-exception-unavailable": "Die angeforderte Revision ($1) hat bereits eine Version aus einer späteren Revision",
+	"pageversions-revision-exception-no-version": "Der Revision $1 ist keine Version zugewiesen",
+	"pageversions-versionhistory-grid-header-version": "Version",
+	"pageversions-ca-create-label": "Seitenversion erstellen",
+	"page-versions-next-versions-load-failed": "Fehler beim Laden von Versionsinformationen. Bitte {{#FORMAL:versuche|versuchen Sie}} es später erneut.",
+	"page-versions-next-versions-current": "Vorherige Seitenversion: $1",
+	"pageversions-ui-version-type-label-major": "Hauptversion ($1)",
+	"pageversions-ui-version-type-label-minor": "Nebenversion ($1)",
+	"pageversions-ui-version-type-label-patch": "Patch-Version ($1)",
+	"pageversions-ui-action-create": "Erstellen",
+	"pageversions-ui-action-cancel": "Abbrechen",
+	"page-versions-next-versions-comment-label": "Kommentar",
+	"page-versions-error": "Ein Fehler ist aufgetreten. Bitte {{'FORMAL:versuche|versuchen Sie}} es später erneut.",
+	"pageversions-version-badge-label": "Version: $1",
+	"pageversions-automation-trigger-type-header": "Bei Versionsstufen auslösen",
+	"pageversions-automation-trigger-label": "Neue Seitenversion",
+	"pageversions-checkin-form-header": "{{'FORMAL:Möchtest du|Möchten Sie}} eine neue Seitenversion erstellen?",
+	"pageversions-ui-version-type-label-none": "Keine neue Version erstellen",
+	"pageversions-workflow-exception-no-title": "Kein gültiger Titel gefunden",
+	"pageversions-workflow-exception-no-revision": "Keine gültige Revision gefunden",
+	"pageversions-workflow-exception-invalid-version-type": "Ungültige Version angegeben",
+	"pageversions-workflow-inspector-field-version-type-label": "Versionstyp",
+	"pageversions-workflow-version-type-label-major": "Hauptversion",
+	"pageversions-workflow-version-type-label-minor": "Nebenversion",
+	"pageversions-workflow-version-type-label-patch": "Patch-Version",
+	"pageversions-workflow-inspector-field-pagename": "Seite für die eine Version erstellt werden soll",
+	"pageversions-versionhistory-grid-header-version-comment": "Versionskommentar",
+	"page-versions-ns-setting-label": "Seitenversionen",
+	"page-versions-ns-setting-desc": "Die Erstellung von Seitenversionen erlauben"
+}
