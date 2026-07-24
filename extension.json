@@ -164,7 +164,11 @@
 		"PageVersionCreated": "triggerAutomations",
 		"ParserFirstCallInit": "addMagicWords",
 		"ParserGetVariableValueSwitch": "addMagicWords",
-		"GetMagicVariableIDs": "addMagicWords"
+		"GetMagicVariableIDs": "addMagicWords",
+		"NamespaceManager::getMetaFields": "integrateIntoNamespaceManager",
+		"BSApiNamespaceStoreMakeData": "integrateIntoNamespaceManager",
+		"NamespaceManager::editNamespace": "integrateIntoNamespaceManager",
+		"NamespaceManagerBeforePersistSettings": "integrateIntoNamespaceManager"
 	},
 	"HookHandlers": {
 		"runDatabaseUpdates": {
@@ -198,6 +202,10 @@
 		"addMagicWords": {
 			"class": "MediaWiki\\Extension\\PageVersions\\Hook\\AddMagicWords",
 			"services": [ "PageVersions.Store", "TitleFactory" ]
+		},
+		"integrateIntoNamespaceManager": {
+			"class": "\\MediaWiki\\Extension\\PageVersions\\Integration\\IntegrateIntoNamespaceManager",
+			"services": [ "MainConfig", "NamespaceInfo" ]
 		}
 	},
 	"ServiceWiringFiles": [
