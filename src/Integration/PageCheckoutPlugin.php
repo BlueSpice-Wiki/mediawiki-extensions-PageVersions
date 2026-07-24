@@ -86,7 +86,8 @@ class PageCheckoutPlugin implements IPageCheckoutPlugin {
 		$items[] = [
 			'type' => 'radio_multiselect',
 			'name' => 'version_type',
-			'noLayout' => true,
+			'label' => Message::newFromKey( 'page-versions-next-versions-type-label' )->text(),
+			'labelAlign' => 'top',
 			'options' => $options,
 			'style' => 'margin-top: 10px;'
 		];

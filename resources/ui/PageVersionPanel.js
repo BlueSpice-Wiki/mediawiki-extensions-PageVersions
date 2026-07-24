@@ -54,9 +54,12 @@ ext.pageVersions.ui.PageVersionPanel.prototype.init = async function () {
 		} );
 		this.picker.$element.css( 'margin-top', '10px' );
 
-		this.$element.append( this.picker.$element );
+		this.$element.append( new OO.ui.FieldLayout( this.picker, {
+			label: mw.msg( 'page-versions-next-versions-type-label' ),
+			align: 'top'
+		} ).$element );
 
-		this.commentField = new OO.ui.TextInputWidget();
+		this.commentField = new OO.ui.MultilineTextInputWidget();
 		this.$element.append( new OO.ui.FieldLayout( this.commentField, {
 			label: mw.msg( 'page-versions-next-versions-comment-label' ),
 			align: 'top'

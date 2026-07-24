@@ -122,6 +122,7 @@
 				"pageversions-ui-action-create",
 				"pageversions-ui-action-cancel",
 				"page-versions-next-versions-comment-label",
+				"page-versions-next-versions-type-label",
 				"pageversions-ca-create-label",
 				"page-versions-error"
 			]
