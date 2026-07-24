@@ -56,7 +56,7 @@ class NewPageVersionActivity extends GenericActivity {
 		$type = $data['version_type'] ?? null;
 
 		try {
-			$user = User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] );
+			$user = User::newSystemUser( User::MAINTENANCE_SCRIPT_USER, [ 'steal' => true ] );
 			$this->pageVersionManager->createNewVersion( $revision, $user, $type, $data['comment'] ?? '' );
 			return new ExecutionStatus( static::STATUS_COMPLETE, $data );
 		} catch ( \Throwable $ex ) {
