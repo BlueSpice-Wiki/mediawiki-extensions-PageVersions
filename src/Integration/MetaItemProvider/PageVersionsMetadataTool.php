@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\PageVersions\Integration\MetaItemProvider;
 
-use Html;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Extension\PageVersions\PageVersion;
 use MediaWiki\Extension\PageVersions\PageVersionStore;
+use MediaWiki\Html\Html;
 use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
