@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\PageVersions\Tests\Util;
 
-use Config;
+use MediaWiki\Config\Config;
 use MediaWiki\Extension\PageVersions\Util\VersionBumper;
 use PHPUnit\Framework\TestCase;
 

@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\PageVersions\Util;
 
-use Config;
+use MediaWiki\Config\Config;
 
 class VersionBumper {
 
