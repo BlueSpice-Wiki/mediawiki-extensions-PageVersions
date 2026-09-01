@@ -34,5 +34,5 @@
 	"pageversions-workflow-inspector-field-pagename": "Page to create version for",
 	"pageversions-versionhistory-grid-header-version-comment": "Version comment",
 	"page-versions-ns-setting-label": "Page versions",
-	"page-versions-ns-setting-desc": "Enable creation of page versions"
+	"page-versions-ns-setting-desc": "Create page versions"
 }
