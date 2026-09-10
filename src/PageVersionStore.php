@@ -40,7 +40,7 @@ class PageVersionStore {
 	 * @return PageVersion|null
 	 */
 	public function getVersionForRevisionId( int $revId ): ?PageVersion {
-		$dbr = $this->lb->getConnectionRef( DB_REPLICA );
+		$dbr = $this->lb->getConnection( DB_REPLICA );
 		$row = $dbr->newSelectQueryBuilder()
 			->select( [ 'pv_rev', 'pv_version', 'pv_wiki_id', 'pv_page', 'pv_timestamp', 'pv_actor', 'pv_comment' ] )
 			->from( 'page_version' )
@@ -85,7 +85,7 @@ class PageVersionStore {
 	 */
 	public function getCurrentPageVersion( int $pageId ): ?string {
 		// Get latest version for this page, if any
-		$dbr = $this->lb->getConnectionRef( DB_REPLICA );
+		$dbr = $this->lb->getConnection( DB_REPLICA );
 		$row = $dbr->newSelectQueryBuilder()
 			->select( [ 'pv_version' ] )
 			->from( 'page_version' )
@@ -104,7 +104,7 @@ class PageVersionStore {
 	 * @return array
 	 */
 	public function getPageVersions( int $pageId ): array {
-		$dbr = $this->lb->getConnectionRef( DB_REPLICA );
+		$dbr = $this->lb->getConnection( DB_REPLICA );
 		$res = $dbr->newSelectQueryBuilder()
 			->select( [ 'pv_rev', 'pv_version', 'pv_wiki_id', 'pv_page', 'pv_timestamp', 'pv_actor', 'pv_comment' ] )
 			->from( 'page_version' )
@@ -127,7 +127,7 @@ class PageVersionStore {
 	 * @return void
 	 */
 	public function storePageVersion( PageVersion $version ): void {
-		$dbw = $this->lb->getConnectionRef( DB_PRIMARY );
+		$dbw = $this->lb->getConnection( DB_PRIMARY );
 		$dbw->newInsertQueryBuilder()
 			->table( 'page_version' )
 			->row( [
@@ -148,7 +148,7 @@ class PageVersionStore {
 	 * @return void
 	 */
 	public function deleteVersion( PageVersion $version ): void {
-		$dbw = $this->lb->getConnectionRef( DB_PRIMARY );
+		$dbw = $this->lb->getConnection( DB_PRIMARY );
 		$dbw->newDeleteQueryBuilder()
 			->deleteFrom( 'page_version' )
 			->where( [
@@ -207,7 +207,7 @@ class PageVersionStore {
 	 * @return array [ rev_id => version ]
 	 */
 	private function getPageVersionsRaw( int $pageId ): array {
-		$dbr = $this->lb->getConnectionRef( DB_REPLICA );
+		$dbr = $this->lb->getConnection( DB_REPLICA );
 		$res = $dbr->newSelectQueryBuilder()
 			->select( [ 'pv_rev', 'pv_version', 'pv_page' ] )
 			->from( 'page_version' )
