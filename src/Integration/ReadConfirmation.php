@@ -31,7 +31,8 @@ class ReadConfirmation implements PageReadConfirmationGetRequestInfoHook {
 		}
 
 		$oldText = $requestInfo['version_link']['text'];
-		$requestInfo['version_link']['text'] = "{$version->getVersion()} ($oldText)";
+		$requestInfo['version_label'] = "{$version->getVersion()} - $oldText";
+		$requestInfo['version_link']['text'] = "{$version->getVersion()} - $oldText";
 		$requestInfo['version_link']['anchor'] = $this->linkRenderer->makeKnownLink(
 			$page, $requestInfo['version_link']['text'], [], [ 'version' => $version->getVersion() ]
 		);

@@ -33,7 +33,7 @@ class ReadConfirmationPageQueryStore implements MWStakeCommonWebAPIsQueryStoreRe
 			} else {
 				$link = $this->linkRenderer->makeKnownLink(
 					$version->getRevision()->getPage(),
-					$version->getVersion(),
+					"{$version->getVersion()} - {$record->get( 'revision_text' )}",
 					[], [ 'version' => $version->getVersion() ]
 				);
 				$record->set( 'revision_link', $link );
