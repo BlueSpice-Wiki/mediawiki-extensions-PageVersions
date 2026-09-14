@@ -29,7 +29,7 @@ class ReadConfirmationPageQueryStore implements MWStakeCommonWebAPIsQueryStoreRe
 			$version = $record->get( 'prc_rev' ) ?
 				$this->pageVersionStore->getVersionForRevisionId( $record->get( 'prc_rev' ) ) : null;
 			if ( !$version ) {
-				$record->set( 'revision_link', null );
+				continue;
 			} else {
 				$link = $this->linkRenderer->makeKnownLink(
 					$version->getRevision()->getPage(),
