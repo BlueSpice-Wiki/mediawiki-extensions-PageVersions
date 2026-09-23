@@ -25,7 +25,7 @@ ext.pageVersions.ui.workflows.NewPageVersionActivityInspector.prototype.getItems
 			label: mw.msg( 'pageversions-workflow-inspector-field-pagename' )
 		},
 		{
-			name: 'version_type',
+			name: 'properties.version_type',
 			type: 'radio_multiselect',
 			label: mw.msg( 'pageversions-workflow-inspector-field-version-type-label' ),
 			options: [
