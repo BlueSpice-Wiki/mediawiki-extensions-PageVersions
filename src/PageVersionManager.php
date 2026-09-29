@@ -10,6 +10,7 @@ use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Title\Title;
 use MediaWiki\WikiMap\WikiMap;
 use PermissionsError;
 
@@ -119,15 +120,18 @@ class PageVersionManager {
 	 * @throws PermissionsError
 	 */
 	private function assertActorCan( string $action, RevisionRecord $revision, Authority $actor ): void {
-		if ( $actor->isSystemuser() ) {
+		if ( $actor->getUser()->isSystemUser() ) {
 			return;
 		}
 		$can = false;
 		switch ( $action ) {
 			case 'create':
 			case 'remove':
-				$can = $this->permissionManager->userCan( 'edit', $actor->getUser(), $revision->getPage() );
-				break;
+				$linkTarget = Title::castFromPageIdentity( $revision->getPage() );
+				if ( $linkTarget ) {
+					$can = $this->permissionManager->userCan( 'edit', $actor->getUser(), $linkTarget );
+					break;
+				}
 		}
 
 		if ( !$can ) {
