@@ -168,7 +168,8 @@
 		"NamespaceManager::getMetaFields": "integrateIntoNamespaceManager",
 		"BSApiNamespaceStoreMakeData": "integrateIntoNamespaceManager",
 		"NamespaceManager::editNamespace": "integrateIntoNamespaceManager",
-		"NamespaceManagerBeforePersistSettings": "integrateIntoNamespaceManager"
+		"NamespaceManagerBeforePersistSettings": "integrateIntoNamespaceManager",
+		"GalaxyLogStoreOnRevisionLink": "integrateIntoGalaxyLogStore"
 	},
 	"HookHandlers": {
 		"runDatabaseUpdates": {
@@ -206,6 +207,10 @@
 		"integrateIntoNamespaceManager": {
 			"class": "\\MediaWiki\\Extension\\PageVersions\\Integration\\IntegrateIntoNamespaceManager",
 			"services": [ "MainConfig", "NamespaceInfo" ]
+		},
+		"integrateIntoGalaxyLogStore": {
+			"class": "\\MediaWiki\\Extension\\PageVersions\\Integration\\Galaxy\\IntegrateIntoGalaxyLogStore",
+			"services": [ "PageVersions.Store", "LinkRenderer" ]
 		}
 	},
 	"ServiceWiringFiles": [
