@@ -114,6 +114,8 @@ class PageVersionsMetadataTool extends Literal {
 		foreach ( $versions as $version ) {
 			$versionList[$version->getVersion()] = $this->title->getLocalURL( [ 'version' => $version->getVersion() ] );
 		}
+		natsort( $versionList );
+		$versionList = array_reverse( $versionList, true );
 		return $versionList;
 	}
 }
