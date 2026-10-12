@@ -7,7 +7,7 @@
 	"page-versions-desc": "Ermöglicht die Versionierung von Seiten",
 	"pageversions-revision-exception-unavailable": "Die angeforderte Revision ($1) hat bereits eine Version aus einer späteren Revision",
 	"pageversions-revision-exception-no-version": "Der Revision $1 ist keine Version zugewiesen",
-	"pageversions-versionhistory-grid-header-version": "Version",
+	"pageversions-versionhistory-grid-header-version": "Seitenversion",
 	"pageversions-ca-create-label": "Seitenversion erstellen",
 	"page-versions-next-versions-load-failed": "Fehler beim Laden von Versionsinformationen. Bitte {{#FORMAL:versuche|versuchen Sie}} es später erneut.",
 	"page-versions-next-versions-current": "Vorherige Seitenversion: $1",

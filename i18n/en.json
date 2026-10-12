@@ -7,7 +7,7 @@
 	"page-versions-desc": "Allows page versioning",
 	"pageversions-revision-exception-unavailable": "The requested revision ($1) already has a version from a later revision",
 	"pageversions-revision-exception-no-version": "No version is assigned to revision $1",
-	"pageversions-versionhistory-grid-header-version": "Version",
+	"pageversions-versionhistory-grid-header-version": "Page version",
 	"pageversions-ca-create-label": "Create page version",
 	"page-versions-next-versions-load-failed": "Failed to load version information. Please try again later.",
 	"page-versions-next-versions-current": "Previous page version: $1",
