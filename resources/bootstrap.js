@@ -9,22 +9,15 @@ window.ext.pageVersions.VERSION_MINOR = 'minor';
 window.ext.pageVersions.VERSION_MAJOR = 'major';
 
 window.ext.pageVersions.api = {
-	createVersion: async ( revisionId, type, comment ) => {
-		return await ext.pageVersions.api._ajax( 'create', {
-			revision: revisionId,
-			type: type,
-			comment: comment
-		}, 'POST' );
-	},
-	deleteVersion: async ( revisionId ) => {
-		return await ext.pageVersions.api._ajax( 'delete', {
-			revision: revisionId
-		}, 'POST' );
-	},
-	getNextVersions: async ( pageId ) => {
-		return await ext.pageVersions.api._ajax( 'next/' + pageId, {}, 'GET' );
-
-	},
+	createVersion: async ( revisionId, type, comment ) => await ext.pageVersions.api._ajax( 'create', { // eslint-disable-line no-underscore-dangle
+		revision: revisionId,
+		type: type,
+		comment: comment
+	}, 'POST' ),
+	deleteVersion: async ( revisionId ) => await ext.pageVersions.api._ajax( 'delete', { // eslint-disable-line no-underscore-dangle
+		revision: revisionId
+	}, 'POST' ),
+	getNextVersions: async ( pageId ) => await ext.pageVersions.api._ajax( 'next/' + pageId, {}, 'GET' ), // eslint-disable-line no-underscore-dangle
 	_ajax: async ( path, params, method ) => {
 		const base = mw.util.wikiScript( 'rest' ) + '/page_versions/';
 		let url = base + path;
@@ -45,7 +38,7 @@ window.ext.pageVersions.api = {
 
 		return fetch( url, options ).then( ( res ) => {
 			if ( !res.ok ) {
-				throw new Error( `REST request failed: ${res.status}` );
+				throw new Error( `REST request failed: ${ res.status }` );
 			}
 			return res.json();
 		} );
@@ -53,7 +46,7 @@ window.ext.pageVersions.api = {
 };
 
 $( () => {
-	$( '#ca-createPageVersion' ).on( 'click', async ( e ) => {
+	$( '#ca-createPageVersion' ).on( 'click', async ( e ) => { // eslint-disable-line no-unused-vars
 		await mw.loader.using( [ 'ext.pageVersions.create' ] );
 
 		const wm = OO.ui.getWindowManager();

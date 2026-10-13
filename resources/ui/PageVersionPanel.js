@@ -33,19 +33,19 @@ ext.pageVersions.ui.PageVersionPanel.prototype.init = async function () {
 		if ( nextVersions.patch ) {
 			options.push( new OO.ui.RadioOptionWidget( {
 				data: ext.pageVersions.VERSION_PATCH,
-				label: mw.msg('pageversions-ui-version-type-label-patch', nextVersions.patch )
+				label: mw.msg( 'pageversions-ui-version-type-label-patch', nextVersions.patch )
 			} ) );
 		}
 		if ( nextVersions.minor ) {
 			options.push( new OO.ui.RadioOptionWidget( {
 				data: ext.pageVersions.VERSION_MINOR,
-				label: mw.msg('pageversions-ui-version-type-label-minor', nextVersions.minor )
+				label: mw.msg( 'pageversions-ui-version-type-label-minor', nextVersions.minor )
 			} ) );
 		}
 		if ( nextVersions.major ) {
 			options.push( new OO.ui.RadioOptionWidget( {
 				data: ext.pageVersions.VERSION_MAJOR,
-				label: mw.msg('pageversions-ui-version-type-label-major', nextVersions.major )
+				label: mw.msg( 'pageversions-ui-version-type-label-major', nextVersions.major )
 			} ) );
 		}
 
@@ -87,7 +87,7 @@ ext.pageVersions.ui.PageVersionPanel.prototype.create = async function () {
 			}
 			return res.version;
 		} catch ( e ) {
-			return Promise.reject( e );
+			return Promise.reject( e ); // eslint-disable-line unicorn/no-useless-promise-resolve-reject
 		}
 	}
 };
