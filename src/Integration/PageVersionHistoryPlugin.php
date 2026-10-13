@@ -8,7 +8,6 @@ use MediaWiki\Extension\PageVersions\PageVersionStore;
 class PageVersionHistoryPlugin implements IHistoryPlugin {
 
 	/**
-	 *
 	 * @param PageVersionStore $store
 	 */
 	public function __construct( private readonly PageVersionStore $store ) {

@@ -16,9 +16,6 @@ class PageVersionsMetadataTool extends Literal {
 	private ?PageVersion $version = null;
 	private ?Title $title = null;
 
-	/**
-	 *
-	 */
 	public function __construct(
 		private readonly PageVersionStore $store
 	) {
@@ -26,7 +23,6 @@ class PageVersionsMetadataTool extends Literal {
 	}
 
 	/**
-	 *
 	 * @param IContextSource $context
 	 * @return bool
 	 */
@@ -52,7 +48,6 @@ class PageVersionsMetadataTool extends Literal {
 	}
 
 	/**
-	 *
 	 * @return string
 	 */
 	public function getHtml(): string {

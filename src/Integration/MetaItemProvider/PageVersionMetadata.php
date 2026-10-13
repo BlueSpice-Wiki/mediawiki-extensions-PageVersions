@@ -17,7 +17,6 @@ class PageVersionMetadata implements IMetaItemProvider {
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function getName(): string {
@@ -25,7 +24,6 @@ class PageVersionMetadata implements IMetaItemProvider {
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function getComponent(): IComponent {
