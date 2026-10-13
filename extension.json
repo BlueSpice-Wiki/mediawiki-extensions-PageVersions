@@ -131,9 +131,6 @@
 			"scripts": [
 				"ui/workflows/NewPageVersionActivityInspector.js"
 			],
-			"styles": [
-				"ui/workflows/customElements.css"
-			],
 			"messages": [
 				"pageversions-ca-create-label",
 				"pageversions-workflow-inspector-field-version-type-label",
