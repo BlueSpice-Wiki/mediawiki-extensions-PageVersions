@@ -88,15 +88,12 @@ class PageVersionsMetadataTool extends Literal {
 			$menuItems .= Html::rawElement(
 				'li',
 				[ 'class' => 'page-versions-show-all-item' ],
-				Html::element( 'hr', [ 'class' => 'dropdown-divider' ] )
-			) . Html::rawElement(
-				'li',
-				[ 'class' => 'page-versions-show-all-item' ],
 				Html::element(
 					'a',
 					[
 						'class' => 'dropdown-item page-versions-show-all',
-						'href' => '#',
+						'role' => 'button',
+						'href' => '',
 					],
 					Message::newFromKey( 'pageversions-version-show-all' )->text()
 				)
