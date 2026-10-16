@@ -96,7 +96,8 @@
 			],
 			"messages": [
 				"pageversions-versionhistory-grid-header-version",
-				"pageversions-versionhistory-grid-header-version-comment"
+				"pageversions-versionhistory-grid-header-version-comment",
+				"pageversions-version-show-all"
 			],
 			"dependencies": [
 				"ext.oOJSPlus.data",

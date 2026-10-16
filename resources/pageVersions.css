@@ -4,6 +4,16 @@
 	background-color: var( --bs-secondary-bg, #e9ecef );
 }
 
+.page-versions-version-tool .dropdown-menu {
+	max-height: 70vh;
+	overflow-y: auto;
+}
+
+.page-versions-version-tool .dropdown-menu:not( .page-versions-expanded ) .page-versions-extra-item,
+.page-versions-version-tool .dropdown-menu.page-versions-expanded .page-versions-show-all-item {
+	display: none;
+}
+
 .page-versions-version-tool .page-versions-version-label {
 	display: inline-flex;
 	align-items: center;
