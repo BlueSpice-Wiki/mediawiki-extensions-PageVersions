@@ -46,6 +46,11 @@ window.ext.pageVersions.api = {
 };
 
 $( () => {
+	$( document ).on( 'click', '.page-versions-show-all', function ( e ) {
+		e.preventDefault();
+		$( this ).closest( '.dropdown-menu' ).addClass( 'page-versions-expanded' );
+	} );
+
 	$( '#ca-createPageVersion' ).on( 'click', async ( e ) => { // eslint-disable-line no-unused-vars
 		await mw.loader.using( [ 'ext.pageVersions.create' ] );
 

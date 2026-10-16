@@ -20,6 +20,7 @@
 	"page-versions-next-versions-comment-label": "Label for the comment input field in the version creation panel.",
 	"page-versions-error": "Generic error message shown in the UI when an unexpected error occurs.",
 	"pageversions-version-badge-label": "Label for the version badge displayed in the page metadata. $1 is the version number (e.g. '1.2.3').",
+	"pageversions-version-show-all": "Action in the page version dropdown that expands the list to show all versions.",
 	"pageversions-automation-trigger-type-header": "Header label for the trigger configuration section in the wiki automations integration, used to select which version levels trigger an automation.",
 	"pageversions-automation-trigger-label": "Label for the automation trigger that fires when a new page version is created.",
 	"pageversions-checkin-form-header": "Header text of the check-in form asking the user whether to create a new page version upon page check-in.",
