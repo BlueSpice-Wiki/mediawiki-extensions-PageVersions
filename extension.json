@@ -246,6 +246,10 @@
 			"services": [ "PageVersions.Store", "PageVersions._Bumper" ]
 		}
 	],
+	"LogTypes": [ "ext-page-versions" ],
+	"LogActionsHandlers": {
+		"ext-page-versions/*": "LogFormatter"
+	},
 	"manifest_version": 2,
 	"load_composer_autoloader": true
 }

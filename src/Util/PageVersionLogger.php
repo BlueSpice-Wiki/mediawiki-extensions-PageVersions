@@ -3,6 +3,9 @@
 namespace MediaWiki\Extension\PageVersions\Util;
 
 use MediaWiki\Extension\PageVersions\PageVersion;
+use MediaWiki\Logging\ManualLogEntry;
+use MediaWiki\Page\PageIdentity;
+use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use Psr\Log\LoggerInterface;
 
@@ -31,6 +34,16 @@ class PageVersionLogger {
 				'pageTitle' => $version->getRevision()->getPage()->getDBkey()
 			]
 		);
+
+		$this->addEntry(
+			'add-version',
+			$version->getRevision()->getPage(),
+			$actor,
+			[
+				'4:revision:revision' => $version->getRevision()->getId(),
+				'5::version' => $version->getVersion(),
+			]
+		);
 	}
 
 	/**
@@ -48,6 +61,16 @@ class PageVersionLogger {
 				'pageTitle' => $version->getRevision()->getPage()->getDBkey()
 			]
 		);
+
+		$this->addEntry(
+			'remove-version',
+			$version->getRevision()->getPage(),
+			$actor,
+			[
+				'4:revision:revision' => $version->getRevision()->getId(),
+				'5::version' => $version->getVersion(),
+			]
+		);
 	}
 
 	/**
@@ -57,5 +80,24 @@ class PageVersionLogger {
 	 */
 	public function logError( string $e, array $context ): void {
 		$this->logger->error( $e, $context );
+	}
+
+	/**
+	 * @param string $action
+	 * @param PageIdentity $page
+	 * @param User $actor
+	 * @param array $params
+	 * @return void
+	 */
+	private function addEntry( string $action, PageIdentity $page, UserIdentity $actor, array $params = [] ) {
+		$logEntry = new ManualLogEntry( 'ext-page-versions', $action );
+		$logEntry->setPerformer( $actor );
+		$logEntry->setTarget( $page );
+
+		$logEntry->setParameters( $params );
+
+		$logId = $logEntry->insert();
+
+		$logEntry->publish( $logId );
 	}
 }

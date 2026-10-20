@@ -34,5 +34,9 @@
 	"pageversions-workflow-inspector-field-pagename": "Label for the page name field in the workflow activity inspector, specifying which page to create a version for.",
 	"pageversions-versionhistory-grid-header-version-comment": "Column header label for the version comment in the version history grid.",
 	"page-versions-ns-setting-label": "Namespace setting to enable page versions for a specific namespace.",
-	"page-versions-ns-setting-desc": "Namespace setting description for enabling page versions for a specific namespace."
+	"page-versions-ns-setting-desc": "Namespace setting description for enabling page versions for a specific namespace.",
+	"log-name-ext-page-versions": "Log type for page versions",
+	"log-description-ext-page-versions": "Log description for page versions",
+	"logentry-ext-page-versions-add-version": "Log message for when a new page version is created. $1 is the user who created the version, $2 is the gender of the user (used for proper verb conjugation), $3 is the page title, $4 is the revision ID, and $5 is the new version number.",
+	"logentry-ext-page-versions-remove-version": "Log message for when a page version is removed. $1 is the user who removed the version, $2 is the gender of the user (used for proper verb conjugation), $3 is the page title, $4 is the revision ID, and $5 is the removed version number."
 }

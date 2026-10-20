@@ -34,5 +34,9 @@
 	"pageversions-workflow-inspector-field-pagename": "Page to create version for",
 	"pageversions-versionhistory-grid-header-version-comment": "Version comment",
 	"page-versions-ns-setting-label": "Page versions",
-	"page-versions-ns-setting-desc": "Create page versions"
+	"page-versions-ns-setting-desc": "Create page versions",
+	"log-name-ext-page-versions": "Page version log",
+	"log-description-ext-page-versions": "Log of page versions",
+	"logentry-ext-page-versions-add-version": "$1 {{GENDER:$2|created}} new version \"$5\" on page $3 ($4)",
+	"logentry-ext-page-versions-remove-version": "$1 {{GENDER:$2|removed}} version $5 on page $3 ($4)"
 }
