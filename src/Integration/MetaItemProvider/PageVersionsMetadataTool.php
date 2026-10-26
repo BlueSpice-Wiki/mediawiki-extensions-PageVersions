@@ -12,6 +12,8 @@ use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
 
 class PageVersionsMetadataTool extends Literal {
 
+	private const INITIAL_VISIBLE = 5;
+
 	/** @var PageVersion|null */
 	private ?PageVersion $version = null;
 	private ?Title $title = null;
@@ -61,14 +63,17 @@ class PageVersionsMetadataTool extends Literal {
 		)->text();
 
 		$menuItems = '';
-		foreach ( $this->getVersions() as $version => $url ) {
+		$versions = $this->getVersions();
+		$index = 0;
+		foreach ( $versions as $version => $url ) {
 			$itemClasses = 'dropdown-item';
 			if ( $version === $this->version->getVersion() ) {
 				$itemClasses .= ' active';
 			}
+			$liClasses = ++$index > self::INITIAL_VISIBLE ? 'page-versions-extra-item' : '';
 			$menuItems .= Html::rawElement(
 				'li',
-				[],
+				[ 'class' => $liClasses ],
 				Html::element(
 					'a',
 					[
@@ -76,6 +81,21 @@ class PageVersionsMetadataTool extends Literal {
 						'href' => $url
 					],
 					$version
+				)
+			);
+		}
+		if ( count( $versions ) > self::INITIAL_VISIBLE ) {
+			$menuItems .= Html::rawElement(
+				'li',
+				[ 'class' => 'page-versions-show-all-item' ],
+				Html::element(
+					'a',
+					[
+						'class' => 'dropdown-item page-versions-show-all',
+						'role' => 'button',
+						'href' => '',
+					],
+					Message::newFromKey( 'pageversions-version-show-all' )->text()
 				)
 			);
 		}
@@ -89,6 +109,7 @@ class PageVersionsMetadataTool extends Literal {
 					'href' => '#',
 					'role' => 'button',
 					'data-bs-toggle' => 'dropdown',
+					'data-bs-auto-close' => 'outside',
 					'aria-expanded' => 'false'
 				],
 				$label

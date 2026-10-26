@@ -20,6 +20,7 @@
 	"page-versions-next-versions-comment-label": "Comment",
 	"page-versions-error": "An error occurred. Please try again later.",
 	"pageversions-version-badge-label": "Version: $1",
+	"pageversions-version-show-all": "… show all",
 	"pageversions-automation-trigger-type-header": "Trigger on version levels",
 	"pageversions-automation-trigger-label": "New page version",
 	"pageversions-checkin-form-header": "Do you want to create a new page version?",
