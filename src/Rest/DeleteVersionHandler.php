@@ -3,13 +3,13 @@
 namespace MediaWiki\Extension\PageVersions\Rest;
 
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Exception\PermissionsError;
 use MediaWiki\Extension\PageVersions\Exception\NoVersionOnRevisionException;
 use MediaWiki\Extension\PageVersions\PageVersionManager;
 use MediaWiki\Rest\HttpException;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
 use MediaWiki\Revision\RevisionLookup;
-use PermissionsError;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class DeleteVersionHandler extends SimpleHandler {

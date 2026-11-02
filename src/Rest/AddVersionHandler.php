@@ -3,13 +3,13 @@
 namespace MediaWiki\Extension\PageVersions\Rest;
 
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Exception\PermissionsError;
 use MediaWiki\Extension\PageVersions\Exception\RevisionUnavailableException;
 use MediaWiki\Extension\PageVersions\PageVersionManager;
 use MediaWiki\Rest\HttpException;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
 use MediaWiki\Revision\RevisionLookup;
-use PermissionsError;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class AddVersionHandler extends SimpleHandler {

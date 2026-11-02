@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\PageVersions\Tests;
 
 use DateTime;
 use MediaWiki\Config\Config;
+use MediaWiki\Exception\PermissionsError;
 use MediaWiki\Extension\PageVersions\Exception\NoVersionOnRevisionException;
 use MediaWiki\Extension\PageVersions\Exception\RevisionUnavailableException;
 use MediaWiki\Extension\PageVersions\PageVersion;
@@ -21,7 +22,6 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentity;
-use PermissionsError;
 use PHPUnit\Framework\TestCase;
 use Wikimedia\Rdbms\ILoadBalancer;
 

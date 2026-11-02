@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\PageVersions;
 
+use MediaWiki\Exception\PermissionsError;
 use MediaWiki\Extension\PageVersions\Exception\NoVersionOnRevisionException;
 use MediaWiki\Extension\PageVersions\Exception\RevisionUnavailableException;
 use MediaWiki\Extension\PageVersions\Util\PageVersionLogger;
@@ -12,7 +13,6 @@ use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\WikiMap\WikiMap;
-use PermissionsError;
 
 class PageVersionManager {
 
