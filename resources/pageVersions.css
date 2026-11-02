@@ -5,8 +5,14 @@
 }
 
 .page-versions-version-tool .dropdown-menu {
+	overflow: hidden;
+	padding: 0;
+}
+
+.page-versions-version-tool .dropdown-menu-scrollbar {
 	max-height: 70vh;
 	overflow-y: auto;
+	margin: 0;
 }
 
 .page-versions-version-tool .dropdown-menu:not( .page-versions-expanded ) .page-versions-extra-item,
