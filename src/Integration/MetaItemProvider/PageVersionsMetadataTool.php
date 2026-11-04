@@ -106,18 +106,18 @@ class PageVersionsMetadataTool extends Literal {
 				'a',
 				[
 					'class' => 'dropdown-toggle page-versions-version-label text-decoration-none',
-					'href' => '#',
+					'href' => '',
 					'role' => 'button',
 					'data-bs-toggle' => 'dropdown',
 					'data-bs-auto-close' => 'outside',
 					'aria-expanded' => 'false'
 				],
 				$label
-			) . Html::rawElement(
+			) . Html::rawElement( 'div', [ 'class' => 'dropdown-menu dropdown-menu-end' ], Html::rawElement(
 				'ul',
-				[ 'class' => 'dropdown-menu dropdown-menu-end' ],
+				[ 'class' => 'dropdown-menu-scrollbar' ],
 				$menuItems
-			)
+			) )
 		);
 	}
 
