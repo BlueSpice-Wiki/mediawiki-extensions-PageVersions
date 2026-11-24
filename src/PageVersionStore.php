@@ -69,7 +69,7 @@ class PageVersionStore {
 			->from( 'page_version' )
 			->where( [
 				'pv_version' => $version,
-				'pv_page' => $title->getId(),
+				'pv_page' => (string)$title->getId(),
 				'pv_wiki_id' => WikiMap::getCurrentWikiId(),
 			] )
 			->fetchField();
@@ -91,7 +91,7 @@ class PageVersionStore {
 			->from( 'page_version' )
 			->where( [
 				'pv_wiki_id' => WikiMap::getCurrentWikiId(),
-				'pv_page' => $pageId
+				'pv_page' => (string)$pageId
 			] )
 			->orderBy( [ 'pv_rev' ], 'DESC' )
 			->fetchRow();
@@ -110,7 +110,7 @@ class PageVersionStore {
 			->from( 'page_version' )
 			->where( [
 				'pv_wiki_id' => WikiMap::getCurrentWikiId(),
-				'pv_page' => $pageId
+				'pv_page' => (string)$pageId
 			] )
 			->orderBy( [ 'pv_version' ], 'DESC' )
 			->fetchResultSet();
@@ -134,7 +134,7 @@ class PageVersionStore {
 				'pv_rev' => $version->getRevision()->getId(),
 				'pv_version' => $version->getVersion(),
 				'pv_wiki_id' => WikiMap::getCurrentWikiId(),
-				'pv_page' => $version->getRevision()->getPageId(),
+				'pv_page' => (string)$version->getRevision()->getPageId(),
 				'pv_timestamp' => $dbw->timestamp(),
 				'pv_actor' => $version->getAuthor()->getUser()->getId(),
 				'pv_comment' => $version->getComment()
@@ -213,7 +213,7 @@ class PageVersionStore {
 			->from( 'page_version' )
 			->where( [
 				'pv_wiki_id' => WikiMap::getCurrentWikiId(),
-				'pv_page' => $pageId
+				'pv_page' => (string)$pageId
 			] )
 			->orderBy( [ 'pv_rev' ], 'DESC' )
 			->fetchResultSet();
@@ -240,7 +240,7 @@ class PageVersionStore {
 			$row->pv_version,
 			$this->isLatestVersion( $row->pv_version, (int)$row->pv_page ),
 			$actor,
-			\DateTime::createFromFormat( 'YmdHis', $row->pv_timestamp ),
+			\DateTime::createFromFormat( 'YmdHis', wfTimestamp( TS_MW, $row->pv_timestamp ) ),
 			$row->pv_comment,
 			$row->pv_wiki_id
 		);
